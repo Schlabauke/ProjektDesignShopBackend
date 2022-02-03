@@ -18,12 +18,12 @@
         <section class="addProductForm">
             <h2>ADD A NEW PRODUCT</h2>
             <div class="headlineUnderline"></div>
-            <form action="/add_products_page" enctype="multipart/form-data" method="post">
-                <input type="text" name="productName" id="productName" placeholder="Product Name">
-                <input type="text" name="productPic" id="productPic" placeholder="Product Picture URL">
-                <input type="text" name="productCompany" id="productCompany" placeholder="Company Name">
-                <input type="number" name="productPrice" id="productPrice" placeholder="Product Price">
-                <input type="text" name="productLink" id="productLink" placeholder="Link">
+            <form action="/addItem" enctype="multipart/form-data" method="post">
+                <input type="text" name="ProductName" id="productName" placeholder="Product Name">
+                <input type="text" name="ProductPic" id="productPic" placeholder="Product Picture URL">
+                <input type="text" name="Company" id="productCompany" placeholder="Company Name">
+                <input type="number" name="Price" id="productPrice" placeholder="Product Price">
+                <input type="text" name="ProductLink" id="productLink" placeholder="Link">
                 <input type="submit" id="addProductButton" value="ADD PRODUCT">
             </form>
         </section>
