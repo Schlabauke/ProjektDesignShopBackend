@@ -1,0 +1,202 @@
+/* Farbe: #323A45 / #848484
+font-family: 'Karla', sans-serif;
+ */
+
+@import url('https://fonts.googleapis.com/css2?family=Karla:ital,wght@0,300;0,400;0,500;1,400;1,500&display=swap');
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Karla', sans-serif;
+    color: #323A45;
+}
+
+/* #################### Header ##################### */
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2em;
+    margin: 0 3vw 0 4vw;
+}
+
+h1 {
+    font-size: 25px;
+}
+
+h1:hover, ul li:hover {
+    color: #848484;
+    cursor: pointer;
+}
+
+header ul {
+    list-style: none;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+header ul li {
+    margin: 1em;
+}
+
+/* ################ MobileMenue ################ */
+
+.burgerMe span {
+    display: block;
+    width: 6vw;
+    height: 6px;
+    margin: 5px;
+    background-color: #323A45;
+}
+
+.position {
+    display: none;
+}
+
+.mobileMenue ul li {
+    list-style: none;
+    margin: 1em;
+}
+
+/* ################## Section ################## */
+
+main section {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+    margin: 10vh 5vw;
+}
+
+img {
+    width: 100%;
+}
+
+main section article {
+    margin: 3vh 0;
+}
+
+main section article:first-of-type {
+    grid-column: 1/4;
+}
+
+main section article div {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    padding: 1em 0;
+}
+
+main section article div p:first-of-type {
+    font-size: 20px;
+    font-weight: bold;
+    margin-top: 0.3em;
+}
+
+main section article span {
+    padding: 1em 0;
+}
+
+main section article:hover {
+    opacity: 0.5;
+    transition: 0.2s ease;
+}
+
+/* ######################## FOOTER ######################## */
+
+.houston {
+    display: none;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1vw;
+    margin: 5vh 5vw;
+}
+
+.houston h2 {
+    font-size: 16px;
+    margin-bottom: 2em;
+}
+
+.houston p {
+    margin: 1em 0;
+}
+
+.houston article {
+    margin: 2.5em 0;
+}
+
+.houston article:nth-of-type(2) {
+    margin: 2.5em auto;
+}
+
+footer section:nth-of-type(2) {
+    display: flex;
+    margin: 5em 0 1em 5vw;
+    color: #848484;
+}
+
+#pTag {
+    background-color: #848484;
+    width: 8px;
+    height: 8px;
+    border-radius: 50px;
+    margin: 5px 1em;
+}
+
+.fas fa-circle {
+    color: #323A45;
+    margin-right: 1em;
+}
+
+/* #################### MediaQueries #################### */
+
+@media only screen and (max-width:600px) {
+    .burgerMe {
+        display: block;
+    }
+    .position {
+        display: block;
+        position: relative;
+    }
+    .mobileMenue {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        height: 0;
+        position: absolute;
+        background: #848484;
+        bottom: 50%;
+        left: 0;
+        right: 0;
+        opacity: 0;
+        transition: 1s ease;
+    }
+    header div {
+        display: none;
+    }
+    main section {
+        grid-template-columns: 1fr;
+    }
+    main section article div p {
+        font-size: 10px;
+        font-weight: bold;
+        margin-top: 0.3em;
+    }
+    main section article span {
+        font-size: 10px;
+    }
+    main section article:first-of-type {
+        grid-column: 1/2;
+    }
+    table {
+        display: none;
+    }
+    .houston {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .houston article:nth-of-type(2) {
+        margin: 2.5em 0;
+    }
+}

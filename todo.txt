@@ -1,0 +1,17 @@
+install: 
+express
+ejs
+dotenv
+mongodb
+
+
+Auf konsistente Benennung achten
+Objekte richtig übergeben in export(z.B mit deconstruction)
+
+Server anlegen
+x-routen ('/')&('/articleId')
+ x- Datenbank in Mongo anlegen, mit json-Datei
+Datenbank mit Server verbinden -> An dotenv und verbindungsreihenfolge denken, Funktion auslagern
+    querys anlegen
+x- pages in ejs umwandeln
+page/form mit "Add new Article"
