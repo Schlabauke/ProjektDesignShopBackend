@@ -3,6 +3,7 @@ express
 ejs
 dotenv
 mongodb
+jsonwebtoken
 
 
 Auf konsistente Benennung achten
@@ -15,3 +16,18 @@ Datenbank mit Server verbinden -> An dotenv und verbindungsreihenfolge denken, F
     querys anlegen
 x- pages in ejs umwandeln
 page/form mit "Add new Article"
+
+Such-Funktion
+--> filter title, $regex: title (?)
+
+Sale-Kategorie
+--> alle Artikel <= 30 $
+
+Register-Funktion
+-> passwordhash
+Login.Möglichkeit
+-> passwordhash
+--> check if user already exists, email check
+-> favoriten hinzufügen
+
+

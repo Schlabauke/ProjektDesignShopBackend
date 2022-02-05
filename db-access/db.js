@@ -3,24 +3,21 @@ require('dotenv').config()
 
 let _db;
 
-function _getDB() {
-    return new Promise((resolveDB, rejectWithErr) => {
-        if (_db) {
-            resolveDB(_db);
-        } else {
-            const url = process.env.DB_URL;
-            const client = new MongoClient(url)
+async function _getDB() {
+    if (_db) {
+        resolveDB(_db);
+    } else {
+        const url = process.env.DB_URL;
+        const client = new MongoClient(url)
 
-            client
-                .connect()
-                .then((connected_client) => {
-                    _db = connected_client.db('DesignShop');
-                    resolveDB(_db)
-                })
-                .catch((err) => rejectWithErr(err))
-        }
-    })
+        const connected_client = await client.connect()
+        _db = connected_client.db('DesignShop');
+
+    }
+    return _db
 }
+
+
 
 module.exports = {
     _getDB
