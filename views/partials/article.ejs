@@ -1,19 +1,22 @@
 <!-- forEach-iteration to display all articles, maybe limit the shown items
  -->
-<article>
+<section class="productOverview">
     <% shopItems.forEach(elt=>{ %>
-        <a href="<%- elt.LinkShop  %>" target="__blank">
+        <a href="<%- elt.ProductLink  %>" target="__blank">
             <img src=" <%- elt.ProductLink %> " alt="<%- elt.Company %> ">
+
+            <article>
+                <div>
+                    <h3>
+                        <%- elt.ProductName %>
+                    </h3>
+                    <h3>$<%- elt.Price %>
+                    </h3>
+                </div>
+                <h3>
+                    <%- elt.Company %>
+                </h3>
+            </article>
         </a>
-        <div>
-            <p>
-                <%- elt.ProductName %>
-            </p>
-            <p>$<%- elt.Price %>
-            </p>
-        </div>
-        <span>
-            <%- elt.Company %>
-        </span>
         <%}) %>
-</article>
+</section>

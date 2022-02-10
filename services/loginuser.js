@@ -1,6 +1,6 @@
 const jwt = require('jsonwebtoken')
 const { getUserByEmail } = require('../db-access/userdao')
-const { passwordHash } = require('../utility')
+const { passwordHash } = require('../utility/pwhash')
 
 const generateToken = (user) => {
     const now = Date.now() / 1000

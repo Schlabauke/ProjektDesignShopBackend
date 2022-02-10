@@ -1,4 +1,4 @@
-const { passwordHash } = require('../utility')
+const { passwordHash } = require('../utility/pwhash')
 const { getUserByEmail, createNewUser } = require('../db-access/userdao');
 
 async function registerUser({ firstname, lastname, email, password }) {

@@ -8,7 +8,7 @@ function addNewArticle(item) {
             return db.collection('shopitems')
                 .insertOne(item)
         })
-    console.log('insert new article to shopitems')
+
 }
 
 module.exports = {

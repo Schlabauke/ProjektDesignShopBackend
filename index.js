@@ -1,14 +1,17 @@
 const express = require('express')
 const app = express()
 const formidable = require("formidable")
-const { getAllItems } = require('./functionality/getAllItems')
+const { getAllItems } = require('./services/getAllItems')
 const { loginUser } = require('./services/loginuser')
-const { registerUser }
+const { registerUser } = require('./services/register-user')
+
+//view enginge 
+app.use(express.static(__dirname + '/public'))
 app.set('view engine', 'ejs')
 
 //Routing
 app.get('/', (req, res) => {
-    getAllItems() // line 6 decosntruction,weil export als Objekt
+    getAllItems() // line 6 deconstruction,weil export als Objekt
         .then((shopItems) => {
             res.render('pages/home', { shopItems })
         })
@@ -36,11 +39,10 @@ app.post('/addItem', (req, res) => {
                 Image: fields.ProductPic
             }
             console.log(product)
-            res.render('/')
+            res.redirect('/')
         }
     })
 })
-
 
 
 app.post('/user/login', (req, res) => {
