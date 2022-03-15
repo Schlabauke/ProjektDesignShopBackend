@@ -38,21 +38,21 @@ h2 {
   margin-left: 3vw;
 }
 
-.productOverview, .randomProducts {
+.productOverview, .salesItems {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 15px;
 }
-.productOverview img, .randomProducts img {
+.productOverview img, .salesItems img {
   width: 100%;
 }
-.productOverview article, .randomProducts article {
+.productOverview article, .salesItems article {
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
   padding: 5px 0;
 }
-.productOverview article p, .randomProducts article p {
+.productOverview article p, .salesItems article p {
   color: grey;
 }
 

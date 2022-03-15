@@ -1,31 +1,34 @@
 const { _getDB } = require('./db')
 
-
-//find user with this email
-async function getUserByEmail(email) {
+//getallShopItems
+async function getAllItems() {
     const db = await _getDB()
-    const foundUser = await db.collection('users').findOne({ email })
-    return foundUser
+    const shopItems = await db.collection('shopitems')
+    .find()
+    .toArray()
+    console.log('AllItems',shopItems)
+    return shopItems
 }
 
-async function userNameOrEmailExists(email) {
-    const db = await _getDB()
-    const user = await db.colection('users').findOnde({
-        $or: [
-            { email: email }
-        ]
-    })
-    return user
+// addProduct
+async function addProduct(item){
+    const db= await _getDB()
+    const addProduct = await db.collection('shopitems')
+    .insertOne(item)
+    return item
 }
-
-async function createNewUser(user) {
+//Items on Sale
+async function findItems() {
     const db = await _getDB()
-    const createdUser = await db.collection('users').insertOne(user)
-    return createdUser
+    const foundItems = await db.collection('shopitems')
+    .find({ Price: { $lte: 30 } })
+    .toArray()
+    console.log('foundItems Sale:', foundItems)
+    return foundItems
 }
 
 module.exports = {
-    getUserByEmail,
-    userNameOrEmailExists,
-    createNewUser
+    getAllItems,
+    findItems,
+    addProduct
 }

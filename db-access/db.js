@@ -5,7 +5,7 @@ let _db;
 
 async function _getDB() {
     if (_db) {
-        resolveDB(_db);
+        return _db
     } else {
         const url = process.env.DB_URL;
         const client = new MongoClient(url)

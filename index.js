@@ -1,9 +1,8 @@
 const express = require('express')
 const app = express()
 const formidable = require("formidable")
-const { getAllItems } = require('./services/getAllItems')
-const { loginUser } = require('./services/loginuser')
-const { registerUser } = require('./services/register-user')
+const {getAllItems, addProduct, findItems} = require('./db-access/userdao')
+require('dotenv').config()
 
 //view enginge 
 app.use(express.static(__dirname + '/public'))
@@ -11,7 +10,7 @@ app.set('view engine', 'ejs')
 
 //Routing
 app.get('/', (req, res) => {
-    getAllItems() // line 6 deconstruction,weil export als Objekt
+   getAllItems() // line 6 deconstruction,weil export als Objekt
         .then((shopItems) => {
             res.render('pages/home', { shopItems })
         })
@@ -22,6 +21,18 @@ app.get('/', (req, res) => {
 
 app.get('/addItem', (req, res) => {
     res.render('pages/addProduct')
+})
+
+app.get('/sale',(req,res) => {
+    findItems()
+    .then((shopItems) => {
+        console.log('Sale', shopItems)
+        res.render('pages/salepage', {shopItems
+        })
+    })
+    .catch((err) => {
+        console.log(err)
+    })
 })
 
 app.post('/addItem', (req, res) => {
@@ -44,40 +55,9 @@ app.post('/addItem', (req, res) => {
     })
 })
 
-
-app.post('/user/login', (req, res) => {
-    const email = req.body.email
-    const password = reg.body.password
-
-    loginUser({ email, password })
-        .then((token) => {
-            res.send({ token })
-        })
-        .catch((err) => {
-            console.log('err on login', err)
-            res.status(400).send({ err: err.message }) // bad request, irgendwa stimmt mit der Clientanfrage nicht
-        })
-})
-
-app.post('/user/register', (req, res) => {
-    const firstname = req.body.firstname
-    const lastname = req.body.lastname
-    const email = req.body.email
-    const password = req.body.password
-
-    registerUser({ firstname, lastname, email, password })
-        .then(() => {
-            res.sendStatus(201)// heißt 'created',erfolgreich registriert
-        })
-        .catch((err) => {
-            console.log('err on register:', err)
-            res.status(400).send({ err: err.message })
-        })
-})
-
 app.use((_, res) => {
     res.sendStatus(404) // not found & end
 })
 
-const PORT = 3141
+const PORT = 3001
 app.listen(PORT, () => console.log('Listening on Port:', PORT))
