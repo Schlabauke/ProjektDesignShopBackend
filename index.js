@@ -51,5 +51,5 @@ app.use((_, res) => {
     res.sendStatus(404); // not found & end
 });
 
-const PORT = 3001;
+const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => console.log('Listening on Port:', PORT));
