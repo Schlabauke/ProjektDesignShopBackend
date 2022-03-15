@@ -6,7 +6,6 @@ async function getAllItems() {
     const shopItems = await db.collection('shopitems')
     .find()
     .toArray()
-    console.log('AllItems',shopItems)
     return shopItems
 }
 
